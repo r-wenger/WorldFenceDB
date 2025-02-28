@@ -17,32 +17,7 @@ Each country folder includes the following files:
 - `<Country>_cleaned.gpkg` → Standardized fences mapped to OSM's classification.
 - `<Country>_classes_unique.txt` → List of unique `fence_type` values for manual mapping.
 - `fence_type_mapping.csv` → CSV mapping local `fence_type` values to standard OSM types.
-
-Example:
-
-GlobalFenceMap/
-│── Asia/
-│   ├── Armenia/
-│   │   ├── Armenia.gpkg
-│   │   ├── Armenia_classes.gpkg
-│   │   ├── Armenia_cleaned.gpkg
-│   │   ├── Armenia_classes_unique.txt
-│   │   ├── fence_type_mapping.csv
-│   ├── Japan/
-│   │   ├── Japan.gpkg
-│   │   ├── Japan_classes.gpkg
-│   │   ├── Japan_cleaned.gpkg
-│   │   ├── Japan_classes_unique.txt
-│   │   ├── fence_type_mapping.csv
-│── Caribbean/
-│   ├── Haiti/
-│   │   ├── Haiti.gpkg
-│   │   ├── Haiti_classes.gpkg
-│   │   ├── Haiti_cleaned.gpkg
-│   │   ├── Haiti_classes_unique.txt
-│   │   ├── fence_type_mapping.csv
-│...
-
+  
 ---
 
 ## File Descriptions

@@ -1,4 +1,4 @@
-# GlobalFenceMap Dataset
+# WorldFenceDB
 
 ## Overview
 This dataset contains extracted fences from OpenStreetMap (OSM) for various regions worldwide. The dataset is structured by **region** (e.g., Asia, Caribbean, Europe), with each country or island having its own subfolder.

@@ -1,60 +1,82 @@
-# Global Fences Dataset
+# GlobalFenceMap Dataset
 
 ## Overview
-This dataset contains extracted fences from OpenStreetMap (OSM) for various regions worldwide. The dataset is structured by **region** (e.g., Asia, Caribbean, Europe, etc.), with each country or island having its own subfolder. 
+This dataset contains extracted fences from OpenStreetMap (OSM) for various regions worldwide. The dataset is structured by **region** (e.g., Asia, Caribbean, Europe), with each country or island having its own subfolder.
 
 Each country folder contains different versions of the fence data at various processing stages.
 
 ---
 
 ## Folder Structure
-/Global_Fences
-│── /Asia
-│   ├── /Armenia
+
+Each **region** (e.g., Asia, Caribbean, Europe) contains subfolders for individual **countries**.  
+Each country folder includes the following files:
+
+- `<Country>.gpkg` → Raw extracted fences from OSM.
+- `<Country>_classes.gpkg` → Fences where `fence_type` is not empty.
+- `<Country>_cleaned.gpkg` → Standardized fences mapped to OSM's classification.
+- `<Country>_classes_unique.txt` → List of unique `fence_type` values for manual mapping.
+- `fence_type_mapping.csv` → CSV mapping local `fence_type` values to standard OSM types.
+
+Example:
+
+GlobalFenceMap/
+│── Asia/
+│   ├── Armenia/
 │   │   ├── Armenia.gpkg
 │   │   ├── Armenia_classes.gpkg
 │   │   ├── Armenia_cleaned.gpkg
 │   │   ├── Armenia_classes_unique.txt
 │   │   ├── fence_type_mapping.csv
-│── /Caribbean
-│   ├── /Haiti
+│   ├── Japan/
+│   │   ├── Japan.gpkg
+│   │   ├── Japan_classes.gpkg
+│   │   ├── Japan_cleaned.gpkg
+│   │   ├── Japan_classes_unique.txt
+│   │   ├── fence_type_mapping.csv
+│── Caribbean/
+│   ├── Haiti/
 │   │   ├── Haiti.gpkg
 │   │   ├── Haiti_classes.gpkg
 │   │   ├── Haiti_cleaned.gpkg
 │   │   ├── Haiti_classes_unique.txt
 │   │   ├── fence_type_mapping.csv
 │...
+
 ---
 
 ## File Descriptions
 
-1️⃣ **Raw Fences Data (`<Country>.gpkg`)**
+1. **Raw Fences Data (`<Country>.gpkg`)**
    - Contains **raw** fence data extracted from OpenStreetMap.
-   - Includes all fences regardless of whether their `fence_type` attribute is present.
-   - Geometry: **LineString**
+   - Includes all fences regardless of whether the `fence_type` attribute is present.
+   - Geometry: **LineString**.
 
-2️⃣ **Filtered Fences (`<Country>_classes.gpkg`)**
+2. **Filtered Fences (`<Country>_classes.gpkg`)**
    - Contains only fences where the **`fence_type`** attribute is **not empty**.
    - This file is a subset of the raw dataset, focusing on fences with a defined type.
-   - The `fence_type` attribute follows OSM’s classification:  
-     OSM Fence Type Key: https://wiki.openstreetmap.org/wiki/Key:fence_type
+   - The `fence_type` attribute follows OSM’s classification:
+     - OSM Fence Type Key: https://wiki.openstreetmap.org/wiki/Key:fence_type
 
-3️⃣ **Standardized Fences (`<Country>_cleaned.gpkg`)**
+3. **Standardized Fences (`<Country>_cleaned.gpkg`)**
    - This version **remaps `fence_type` values** to standard OSM fence types for consistency.
    - Uses a predefined mapping file (`fence_type_mapping.csv`) stored in each country's folder.
    - Some ambiguous values are manually assigned to the closest OSM category.
 
-4️⃣ **Unique Fence Types (`<Country>_classes_unique.txt`)**
+4. **Unique Fence Types (`<Country>_classes_unique.txt`)**
    - Contains the **list of unique `fence_type` values** found in `<Country>_classes.gpkg`.
    - Used for mapping local values to standard OSM categories.
 
-5️⃣ **Fence Type Mapping (`fence_type_mapping.csv`)**
+5. **Fence Type Mapping (`fence_type_mapping.csv`)**
    - A CSV file mapping country-specific `fence_type` values to the **OSM standard** classification.
-   - Format:  
-     fence_type;osm_mapping  
-     wood_fence;wood  
-     wire_fence;wire  
-     stone_wall;stone  
+   - Format:
+
+     ```
+     fence_type;osm_mapping
+     wood_fence;wood
+     wire_fence;wire
+     stone_wall;stone
+     ```
 
 ---
 
@@ -86,11 +108,11 @@ Each country folder contains different versions of the fence data at various pro
 ---
 
 ## References
-- **OpenStreetMap Barrier Tagging**:  
-  OSM Barrier Wiki: https://wiki.openstreetmap.org/wiki/Key:barrier  
-  OSM Fence Type Key: https://wiki.openstreetmap.org/wiki/Key:fence_type  
+- **OpenStreetMap Barrier Tagging**:
+  - OSM Barrier Wiki: https://wiki.openstreetmap.org/wiki/Key:barrier
+  - OSM Fence Type Key: https://wiki.openstreetmap.org/wiki/Key:fence_type
 
 ---
 
 ## Contact
-For any issues or improvements related to this dataset, please contact us.
+For any issues or improvements related to this dataset, please contact the dataset maintainers.

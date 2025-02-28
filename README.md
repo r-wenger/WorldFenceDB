@@ -92,4 +92,5 @@ The **region** folder contains a csv mapping file:
 ---
 
 ## Contact
-For any issues or improvements related to this dataset, please contact the dataset maintainers.
+For any issues or improvements related to this dataset, please contact **Romain Wenger** at:  
+📧 **romain.wenger@live-cnrs.unistra.fr**

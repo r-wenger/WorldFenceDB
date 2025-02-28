@@ -16,7 +16,9 @@ Each country folder includes the following files:
 - `<Country>_classes.gpkg` → Fences where `fence_type` is not empty.
 - `<Country>_cleaned.gpkg` → Standardized fences mapped to OSM's classification.
 - `<Country>_classes_unique.txt` → List of unique `fence_type` values for manual mapping.
-- `fence_type_mapping.csv` → CSV mapping local `fence_type` values to standard OSM types.
+
+The **region** folder contains a csv mapping file:
+- `all_fence_types.csv` → CSV mapping local `fence_type` values to standard OSM types.
   
 ---
 
@@ -47,10 +49,10 @@ Each country folder includes the following files:
    - Format:
 
      ```
-     fence_type;osm_mapping
-     wood_fence;wood
-     wire_fence;wire
-     stone_wall;stone
+      cleft_pale;wood
+      cloture_animaliere;animal_control
+      cloture_pour_animaux_(moutons);animal_control
+      club_fun;NULL
      ```
 
 ---
